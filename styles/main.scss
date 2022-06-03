@@ -1,0 +1,1242 @@
+//variable
+$black: rgb(0, 0, 0);
+$dark: rgb(27, 27, 27);
+$light: rgb(250, 235, 215);
+$lightTrans: rgba(255, 235, 215, 0.3);
+$backgroundBg: #26262d;
+$mainResumeBg: #31313a;
+$menuBgTrans: #000000e9;
+$gold: #f9e000;
+$goldTrans: #f9e00035;
+$red: #f90036;
+
+//fonts
+@font-face {
+  font-family: "LoraI";
+  src: url("../fonts/Lora-Italic-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Lora";
+  src: url("../fonts/Lora-VariableFont_wght.ttf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: $light;
+  text-decoration: none;
+  list-style: none;
+  font-family: Lora;
+  overflow: hidden;
+  transition: all 1s ease;
+  border: 0;
+  outline: 0;
+}
+
+main {
+  height: 100vh;
+  width: 100vw;
+  background-color: $backgroundBg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .menuBar {
+    display: none;
+  }
+
+  .profileInfo {
+    height: 80vh;
+    width: 35vw;
+    margin: 2rem auto;
+    margin-right: -50px;
+    padding: 2rem;
+    background-color: $mainResumeBg;
+    border-radius: 20px;
+    z-index: 5;
+    border: 1px solid $lightTrans;
+    background: linear-gradient(90deg, #26262d, #31313a 92.98%);
+
+    .cover {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $mainResumeBg;
+      height: 82vh;
+      width: 35vw;
+      top: 13vh;
+      left: 8%;
+      margin-bottom: 1rem;
+      border-radius: 20px;
+      z-index: 10;
+      box-shadow: 4px 4px 17px rgba(0, 0, 0, 0.6);
+      img {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: cover;
+        width: 100%;
+        height: 40vh;
+      }
+
+      h1 {
+        margin: 2rem 0;
+        letter-spacing: 5px;
+      }
+
+      strong {
+        font-size: 1.2rem;
+        letter-spacing: 3px;
+        color: $lightTrans;
+      }
+
+      .line {
+        height: 1px;
+        width: 70%;
+        margin: 4rem 0;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 1) 30%,
+          rgba(38, 38, 45, 1) 100%
+        );
+      }
+
+      .textFooter {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 50%;
+      }
+
+      .coverFooter {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 85%;
+
+        .downloadCV,
+        .hireMe {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row-reverse;
+            font-size: 1.5rem;
+
+            &:hover {
+              color: $gold;
+            }
+
+            i {
+              font-size: 2rem;
+              margin: 0 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .sidebarMenu {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 20px;
+    background-color: $mainResumeBg;
+    left: 2.5%;
+    top: 15%;
+    z-index: 6;
+
+    .closeIcon {
+      display: none;
+    }
+
+    a i {
+      font-size: 2.3rem;
+      line-height: 5rem;
+      z-index: 10;
+      opacity: 0.6;
+      transition: all 0.6s ease-in-out;
+
+      &.active {
+        color: $gold;
+        opacity: 1;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .details {
+    height: 70vh;
+    width: 60vw;
+    margin: auto;
+    margin-left: -50px;
+    background-color: $mainResumeBg;
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid $lightTrans;
+    overflow: hidden;
+
+    .aboutMe {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      text-align: justify;
+      width: 85%;
+      height: 100%;
+      margin: 1rem 2rem 2rem 10rem;
+      transform: translateX(0);
+      opacity: 1;
+
+      h2 {
+        font-size: 2rem;
+        color: $gold;
+        padding: 1rem 3rem;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0%;
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          background: linear-gradient(-45deg, $goldTrans 20%, $gold 100%);
+        }
+      }
+
+      p {
+        width: 90%;
+        margin: 2rem auto;
+        font-size: 1.3rem;
+        line-height: 40px;
+      }
+
+      .ageAddress {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+
+        .age,
+        .address {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          line-height: 50px;
+          margin: auto 5rem;
+
+          .line1,
+          .line2 {
+            height: 1px;
+            width: 60px;
+            background: linear-gradient(
+              90deg,
+              rgba(255, 255, 255, 1) 30%,
+              rgba(38, 38, 45, 1) 100%
+            );
+          }
+
+          .line2 {
+            width: 160px;
+          }
+
+          strong {
+            font-size: 1.3rem;
+            letter-spacing: 3px;
+          }
+
+          small {
+            font-size: 1.3rem;
+            letter-spacing: 3px;
+          }
+        }
+      }
+    }
+
+    .skills {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: justify;
+      width: 90%;
+      height: 100%;
+      margin: 1rem;
+      transform: translateX(-100%);
+      opacity: 0;
+
+      h2 {
+        font-size: 2rem;
+        color: $gold;
+        padding: 1rem 3rem;
+        position: relative;
+        margin-left: 9rem;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0%;
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          background: linear-gradient(-45deg, $goldTrans 20%, $gold 100%);
+        }
+      }
+
+      .skillsInfo {
+        div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          p {
+            width: 200px;
+            margin: 2rem auto;
+            margin-left: 10rem;
+            font-size: 1.3rem;
+            line-height: 50px;
+          }
+
+          small {
+            margin-left: 1rem;
+            padding: 0.3rem;
+            font-size: 1.3rem;
+          }
+        }
+
+        .bar {
+          height: 10px;
+          width: 50%;
+          background-color: gray;
+          position: relative;
+          border-radius: 30px;
+
+          .percent {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background-color: $gold;
+          }
+          .perc1 {
+            animation: perc1Anim 3s 1s forwards;
+
+            @keyframes perc1Anim {
+              0% {
+                width: 0;
+              }
+              100% {
+                width: 80%;
+              }
+            }
+          }
+          .perc2 {
+            animation: perc2Anim 3s 1s forwards;
+
+            @keyframes perc2Anim {
+              0% {
+                width: 0;
+              }
+              100% {
+                width: 70%;
+              }
+            }
+          }
+          .perc3 {
+            animation: perc3Anim 3s 1s forwards;
+
+            @keyframes perc3Anim {
+              0% {
+                width: 0;
+              }
+              100% {
+                width: 95%;
+              }
+            }
+          }
+          .perc4 {
+            animation: perc4Anim 3s 1s forwards;
+
+            @keyframes perc4Anim {
+              0% {
+                width: 0;
+              }
+              100% {
+                width: 90%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .experience {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: justify;
+      width: 85%;
+      height: 100%;
+      margin: 1rem 2rem 2rem 12rem;
+      transform: translateX(-100%);
+      opacity: 0;
+
+      h2 {
+        font-size: 2rem;
+        color: $gold;
+        padding: 1rem 3rem;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0%;
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          background: linear-gradient(-45deg, $goldTrans 20%, $gold 100%);
+        }
+      }
+
+      .ex {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 2rem;
+
+        h3 {
+          margin-bottom: 1rem;
+          font-size: 1.3rem;
+        }
+
+        p {
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    .contact {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: justify;
+      width: 85%;
+      height: 100%;
+      margin: 1rem 2rem 2rem 10rem;
+      transform: translateX(-100%);
+      opacity: 0;
+
+      h2 {
+        font-size: 2rem;
+        color: $gold;
+        padding: 1rem 3rem;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0%;
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          background: linear-gradient(-45deg, $goldTrans 20%, $gold 100%);
+        }
+      }
+
+      .icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 100%;
+        margin-left: 5rem;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          font-size: 1.3rem;
+
+          i {
+            font-size: 3rem;
+            margin-right: 1rem;
+          }
+
+          &:hover {
+            color: $gold;
+          }
+        }
+      }
+    }
+  }
+}
+
+//media
+@media screen and (max-width: 1024px) {
+  main {
+    display: flex;
+    flex-direction: column;
+
+    .profileInfo {
+      height: 50vh;
+      width: 90vw;
+      margin: auto;
+      margin-top: 2rem;
+      position: relative;
+
+      .cover {
+        position: absolute;
+        display: flex;
+        flex-direction: row-reverse;
+        height: 90%;
+        width: 90%;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        margin-right: 1rem;
+        img {
+          width: 70%;
+          height: 100%;
+        }
+
+        .line {
+          width: 80%;
+          margin: 2rem 0;
+        }
+
+        .textFooter {
+          height: 90%;
+        }
+
+        .coverFooter {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          width: 80%;
+
+          .downloadCV,
+          .hireMe {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            a {
+              flex-direction: row-reverse;
+              font-size: 1.3rem;
+              margin: 1rem 0;
+
+              &:hover {
+                color: $gold;
+              }
+
+              i {
+                font-size: 2rem;
+                margin: 0 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .sidebarMenu {
+      left: 2.5%;
+      top: 5%;
+    }
+
+    .details {
+      height: 40vh;
+      width: 80vw;
+      margin: auto;
+      margin-top: 0;
+
+      .aboutMe {
+        width: 95%;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 0;
+
+        h2 {
+          margin: 0;
+        }
+
+        .ageAddress {
+          width: 100%;
+        }
+      }
+
+      .skills {
+        h2 {
+          font-size: 3rem;
+          padding: 1rem 2rem;
+          position: relative;
+          margin: 0;
+        }
+
+        .skillsInfo {
+          div {
+            p {
+              text-align: left;
+              width: 200px;
+              margin: 1rem auto;
+              font-size: 1.3rem;
+              line-height: 50px;
+            }
+
+            small {
+              margin-left: 1rem;
+              font-size: 1.3rem;
+            }
+          }
+        }
+      }
+
+      .experience {
+        margin: 2rem;
+      }
+
+      .contact {
+        margin: 2rem;
+
+        .icon {
+          margin-left: 3rem;
+
+          a {
+            i {
+              font-size: 2.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    .profileInfo {
+      .cover {
+        width: 85%;
+
+        img {
+          width: 50%;
+          height: 100%;
+        }
+      }
+    }
+
+    .sidebarMenu {
+      left: 2.5%;
+      top: 7%;
+    }
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      height: 45vh;
+      width: 80%;
+
+      .aboutMe {
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 95%;
+        height: 100%;
+        margin: auto;
+
+        h2 {
+          margin: 0;
+          font-size: 1.5rem;
+        }
+
+        p {
+          margin: 0;
+          width: 100%;
+          line-height: 30px;
+          font-size: 1rem;
+        }
+
+        .ageAddress {
+          margin: 0;
+          width: 100%;
+
+          .age,
+          .address {
+            strong {
+              font-size: 1.1rem;
+            }
+
+            small {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+
+      .skills {
+        margin: 0.5rem 0;
+        h2 {
+          font-size: 2rem;
+        }
+      }
+
+      .experience {
+        margin: 1rem;
+        height: 100%;
+
+        h2 {
+          font-size: 2rem;
+          padding: 0.5rem 2rem;
+          margin-bottom: 3rem;
+
+          &::after {
+            top: 0;
+            left: 0;
+            height: 30px;
+            width: 30px;
+          }
+        }
+
+        .ex {
+          margin-bottom: 2rem;
+
+          h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+          }
+
+          p {
+            font-size: 1.1rem;
+          }
+        }
+      }
+
+      .contact {
+        margin: 0;
+        padding: 0;
+
+        h2 {
+          font-size: 1.5rem;
+          padding: 1rem 2rem;
+        }
+
+        .icon {
+          a {
+            margin-top: 1rem;
+            align-items: center;
+
+            i {
+              margin-bottom: 0;
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  main {
+    display: flex;
+    flex-direction: column;
+
+    .menuBar {
+      position: absolute;
+      display: flex;
+      top: 10px;
+      left: 0;
+
+      i {
+        background-color: $light;
+        color: black;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0 8px 8px 0;
+        cursor: pointer;
+      }
+    }
+
+    .profileInfo {
+      height: 35vh;
+      width: 100vw;
+      margin: 0;
+      border: none;
+      background: transparent;
+      padding: 0;
+      margin-top: 3rem;
+
+      .cover {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        width: 90%;
+        top: 0;
+        left: 0;
+        margin: auto;
+        img {
+          position: fixed;
+          height: 130px;
+          width: 130px;
+          border-radius: 50%;
+          transform: translateY(-65px);
+          z-index: 20;
+          margin: auto;
+        }
+
+        h1 {
+          margin: 6rem 0 1rem 0;
+          font-size: 1.1rem;
+          letter-spacing: 3px;
+        }
+
+        strong {
+          font-size: 0.7rem;
+          letter-spacing: 2px;
+        }
+
+        .line {
+          width: 70%;
+          margin: 1rem 0;
+        }
+
+        .textFooter {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          align-items: center;
+          height: 90%;
+        }
+
+        .coverFooter {
+          width: 100%;
+          flex-direction: row;
+
+          .downloadCV,
+          .hireMe {
+            a {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-direction: row-reverse;
+              font-size: 0.8rem;
+
+              &:hover {
+                color: $gold;
+              }
+
+              i {
+                font-size: 1.3rem;
+                margin: 0 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .sidebarMenu {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: 0;
+      top: 0;
+      border-radius: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: $menuBgTrans;
+      transform: translateX(-100%);
+
+      .closeIcon {
+        display: flex;
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        font-size: 2rem;
+        cursor: pointer;
+
+        &:hover {
+          color: $red;
+        }
+      }
+
+      a i {
+        font-size: 3rem;
+        line-height: 7rem;
+      }
+    }
+
+    .details {
+      height: 50vh;
+      width: 90vw;
+      margin: 0.5rem 0;
+      padding: 0;
+
+      .aboutMe {
+        flex-direction: column;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 95%;
+        height: 100%;
+        margin: auto;
+
+        h2 {
+          font-size: 1.3rem;
+          padding: 0.5rem;
+          margin: 2rem 0 1rem 0;
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+          }
+        }
+
+        p {
+          width: 95%;
+          margin: auto;
+          font-size: 0.8rem;
+          line-height: 20px;
+        }
+
+        .ageAddress {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 70px;
+          margin-bottom: 2rem;
+
+          .age,
+          .address {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            margin: 0;
+            width: 90%;
+
+            .line1,
+            .line2 {
+              display: none;
+            }
+
+            strong {
+              font-size: 0.8rem;
+              text-align: left;
+            }
+
+            small {
+              font-size: 0.8rem;
+              margin-left: 2rem;
+            }
+          }
+        }
+      }
+
+      .skills {
+        justify-content: flex-start;
+        h2 {
+          font-size: 1.3rem;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+          }
+        }
+
+        .skillsInfo {
+          div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            p {
+              text-align: center;
+              font-size: 0.9rem;
+              line-height: 0;
+              padding: 0.5rem;
+              margin: 0.7rem 0;
+            }
+
+            .bar {
+              width: 90%;
+            }
+
+            small {
+              margin: 0.3rem 0;
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+
+      .experience {
+        margin: 1rem;
+        height: 100%;
+
+        h2 {
+          font-size: 1.5rem;
+          padding: 0.5rem 1rem;
+          margin-bottom: 2rem;
+
+          &::after {
+            top: 0;
+            left: 0;
+            height: 20px;
+            width: 20px;
+          }
+        }
+
+        .ex {
+          margin-bottom: 1rem;
+
+          h3 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+          }
+
+          p {
+            font-size: 1rem;
+          }
+        }
+      }
+
+      .contact {
+        h2 {
+          font-size: 1.9rem;
+          padding: 1.5rem 2.5rem;
+
+          &::after {
+            top: 20px;
+            left: 20px;
+            height: 30px;
+            width: 30px;
+          }
+        }
+
+        .icon {
+          a {
+            margin-top: 1rem;
+            font-size: .9rem;
+
+            i {
+              font-size: 1.3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 350px) and (min-width: 300px) {
+  main {
+    .profileInfo {
+      background: transparent;
+      padding: 0;
+      margin-top: 3rem;
+      height: 38vh;
+
+      .cover {
+        margin: 0.2rem auto;
+        height: 35vh;
+        img {
+          height: 80px;
+          width: 80px;
+          transform: translateY(-40px);
+        }
+
+        h1 {
+          margin: 3.5rem 0 0.5rem 0;
+          font-size: 1rem;
+          letter-spacing: 3px;
+          padding: 0.4rem;
+        }
+
+        strong {
+          font-size: 0.6rem;
+          letter-spacing: 2px;
+          padding: 0.2rem;
+        }
+
+        .line {
+          margin: 1rem 0;
+        }
+
+        .coverFooter {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .downloadCV,
+          .hireMe {
+            a {
+              font-size: 0.7rem;
+
+              i {
+                font-size: 1.1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .sidebarMenu {
+      .closeIcon {
+        font-size: 1.5rem;
+      }
+
+      a i {
+        font-size: 2rem;
+        line-height: 5rem;
+      }
+    }
+
+    .details {
+      width: 80%;
+      height: 55vh;
+
+      .aboutMe {
+        h2 {
+          font-size: 1rem;
+          padding: 0.5rem;
+          margin: 1rem 0 0 0;
+        }
+
+        p {
+          margin: auto;
+          font-size: 0.7rem;
+          line-height: 15px;
+        }
+
+        .ageAddress {
+          height: 50px;
+          margin-bottom: 1rem;
+
+          .age,
+          .address {
+            strong {
+              font-size: 0.7rem;
+              text-align: left;
+            }
+
+            small {
+              font-size: 0.7rem;
+              margin-left: 2rem;
+            }
+          }
+        }
+      }
+
+      .skills {
+        h2 {
+          font-size: 1rem;
+          padding: 0.8rem 2rem;
+        }
+
+        .skillsInfo {
+          div {
+            p {
+              font-size: 0.7rem;
+              padding: 0.3rem;
+              margin: 0.5rem 0;
+            }
+
+            .bar {
+              height: 3px;
+            }
+
+            small {
+              margin: 0.3rem 0;
+              font-size: 0.6rem;
+            }
+          }
+        }
+      }
+
+      .experience {
+        margin: 1rem;
+
+        h2 {
+          font-size: 1rem;
+          padding: 0.5rem 1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .ex {
+          margin-bottom: 1rem;
+
+          h3 {
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+          }
+
+          p {
+            font-size: 0.7rem;
+          }
+        }
+      }
+
+      .contact {
+        width: 100%;
+        h2 {
+          font-size: 1.1rem;
+          padding: 1rem 2rem;
+
+          &::after {
+            height: 20px;
+            width: 20px;
+          }
+        }
+
+        .icon {
+          width: 100%;
+          margin: 0;
+          padding: 0 0.5rem;
+          a {
+            margin-top: 0.8rem;
+            font-size: .8rem;
+
+            i {
+              font-size: 1rem;
+              margin-right: 0.5rem;
+              padding: 0.2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
